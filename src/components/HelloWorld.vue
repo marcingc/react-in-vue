@@ -27,15 +27,38 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+    <HelloReact :name="name" :tasks="tasks"/>
   </div>
 </template>
 
 <script>
+import HelloReact from "./HelloReact.jsx";
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
-  }
+  },
+  components: {
+    HelloReact,
+  },
+  data() {
+    return {
+      name: "World",
+      tasks: [
+        {
+          start: new Date(2020, 1, 1),
+          end: new Date(2020, 1, 2),
+          name: 'Idea',
+          id: 'Task 0',
+          type:'task',
+          progress: 45,
+          isDisabled: true,
+          styles: { progressColor: '#ffbb54', progressSelectedColor: '#ff9e0d' },
+        }
+      ]
+    };
+  },
 }
 </script>
 
